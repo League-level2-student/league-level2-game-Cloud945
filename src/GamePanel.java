@@ -16,7 +16,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 	  final int GAME = 1;
 	  final int END = 2;
 	  int currentState = MENU;
-	  Font titleFont = new Font("Arial", Font.PLAIN, 20);  
+	  Font titleFont = new Font("Futura", Font.BOLD, 45);  
+	  Font font = new Font("Chalkboard", Font.PLAIN, 30);
 	  Parrot parrot=new Parrot(10,200,50,50);
 	  ObjectManager manager = new ObjectManager(parrot);
 	  public static BufferedImage image;
@@ -46,11 +47,14 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 		 
 	  }
 	  void drawMenuState(Graphics g) { 
-		  g.setColor(Color.CYAN);
+		  g.setColor(Color.GREEN);
 		  g.fillRect(0, 0, RainforestRescue.WIDTH, RainforestRescue.HEIGHT);
 		  g.setFont(titleFont);
 		  g.setColor(Color.BLACK);
-		  g.drawString("Press Enter to start and Space to fly up.", 50, 100);
+		  g.drawString("Flappy Parrot", 250, 100);
+		  g.setFont(font);
+		  g.drawString("Press Enter to start and Space to fly up", 120, 250);
+		  g.drawString("...and remember to watch your tail feathers.", 85, 350);
 	  }
 	  void drawGameState(Graphics g) {
 		  if (gotImage) {
@@ -63,11 +67,13 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 		  
 	  }
 	  void drawEndState(Graphics g)  { 
-		  g.setColor(Color.CYAN);
+		  g.setColor(Color.GREEN);
 		  g.fillRect(0, 0, RainforestRescue.WIDTH, RainforestRescue.HEIGHT);
+		  g.drawString("Game Over", 300, 150);
 	  }
 	  
 	  void startGame() {
+		  
 		  obstacleSpawn = new Timer(5000 , manager);
 		  obstacleSpawn.start();
 	  }
@@ -94,13 +100,16 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 		if (e.getKeyCode()==KeyEvent.VK_ENTER) {
 		    if (currentState == END) {
 		        currentState = MENU;
+		        parrot=new Parrot(10,200,50,50);
+		        manager = new ObjectManager(parrot);
 		    } else {
 		        currentState++;
 		        if (currentState==GAME) {
 		        	startGame();
-		        	manager.addObstacles();
+		        	
 		        }else if(currentState==END) {
 		        	obstacleSpawn.stop();
+		        	
 		        }
 		        
 		    }

@@ -4,13 +4,13 @@ import java.awt.image.BufferedImage;
 
 import javax.imageio.ImageIO;
 
-public class LowObstacle extends GameObject {
+public class LowObstacle extends GameObject2 {
 	public static BufferedImage image;
 	public static boolean needImage = true;
 	public static boolean gotImage = false;
 	
-	LowObstacle(int x, int y, int width, int height) {
-		super(x, y, width, height);
+	LowObstacle(int x, int y, int widtha, int heighta) {
+		super(x, y, widtha, heighta);
 		speed = 2;
 		if (needImage) {
 		    loadImage ("ground obstacle.png");
@@ -23,10 +23,10 @@ public class LowObstacle extends GameObject {
 	}
 	void draw(Graphics g) {
 		if (gotImage) {
-			g.drawImage(image, x, y, width, height, null);
+			g.drawImage(image, x, y, widtha, heighta, null);
 		} else {
 			g.setColor(Color.BLUE);
-			g.fillRect(x, y, width, height);
+			g.fillRect(x, y, widtha, heighta);
 		}
 
 

@@ -15,7 +15,7 @@ public class ObjectManager implements ActionListener{
 		Random random = new Random();
 		int height = random.nextInt(250);
 		int width = height*(25/12);
-		int y = random.nextInt(125)+75+height;
+		int y = random.nextInt(100)+100+height;
 		int heighta = RainforestRescue.HEIGHT-y;
 		int widtha = heighta*(94/88);
 		topObstacles.add(new TopObstacle(RainforestRescue.WIDTH,0,width,height));
@@ -48,16 +48,18 @@ public class ObjectManager implements ActionListener{
 	}
 	void checkCollision() {
 		for(int i = 0; i<topObstacles.size()-1;i++) {
-			TopObstacle a = topObstacles.get(i);
-			if(parrot.collisionBox.intersects(a.collisionBox)) {
+			TopObstacle t = topObstacles.get(i);
+			if(parrot.collisionBox.intersects(t.collisionBox)) {
 				parrot.isActive = false;
-				a.isActive = false;
+				t.isActive = false;
+				System.out.println("Top");
 			}
 			for(int j = 0; j<lowObstacles.size()-1;j++) {
-				LowObstacle p = lowObstacles.get(j);
-				if(p.collisionBox.intersects(a.collisionBox)) {
-					p.isActive = false;
-					a.isActive = false;
+				LowObstacle l = lowObstacles.get(j);
+				if(parrot.collisionBox.intersects(l.collisionBox)) {
+					System.out.println("Low");
+					parrot.isActive = false;
+					l.isActive = false;
 				}
 			}
 		}
