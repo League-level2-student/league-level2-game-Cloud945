@@ -3,10 +3,10 @@ import java.awt.Rectangle;
 public class GameObject2 {
 	int x;
 	int y;
-	
-	int speed;
 	int widtha;
 	int heighta;
+	int speed;
+	
 	boolean isActive = true;
 	Rectangle collisionBox;
 
@@ -20,6 +20,6 @@ public class GameObject2 {
 	}
 	
 	void update() {
-		collisionBox.setBounds(x+15, y+15, widtha-30, heighta-30);
+		collisionBox.setBounds(x+15, ObjectManager.y+15, ObjectManager.widtha-30, ObjectManager.heighta-30);
 	}
 }

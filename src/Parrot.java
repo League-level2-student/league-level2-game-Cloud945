@@ -4,14 +4,14 @@ import java.awt.image.BufferedImage;
 
 import javax.imageio.ImageIO;
 
-public class Parrot extends GameObject{
+public class Parrot extends GameObject3{
 	public static BufferedImage image;
 	public static boolean needImage = true;
 	public static boolean gotImage = false;
 	
 	
 	Parrot(int x, int y, int width, int height) {
-		super(x, y, width, height);
+		super(x,y,width,height);
 		speed = 5;
 		if (needImage) {
 		    loadImage ("parrot.png");
@@ -27,7 +27,7 @@ public class Parrot extends GameObject{
 		}
 	}
 	void update() {
-		if(y<400) {
+		if(y<375) {
 			y+=1;
 		}
 	}

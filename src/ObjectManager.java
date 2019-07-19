@@ -8,16 +8,21 @@ public class ObjectManager implements ActionListener{
 	Parrot parrot;
 	ArrayList <TopObstacle> topObstacles = new ArrayList <TopObstacle>();
 	ArrayList <LowObstacle> lowObstacles = new ArrayList <LowObstacle>();
+	public static int height;
+	public static int width;
+	public static int y;
+	public static int heighta;
+	public static int widtha;
 	ObjectManager(Parrot parrot){
 		this.parrot=parrot;
 	}
 	void addObstacles() {
 		Random random = new Random();
-		int height = random.nextInt(250);
-		int width = height*(25/12);
-		int y = random.nextInt(100)+100+height;
-		int heighta = RainforestRescue.HEIGHT-y;
-		int widtha = heighta*(94/88);
+		height = random.nextInt(250);
+		width = height*(25/12);
+		y = random.nextInt(100)+100+height;
+		heighta = RainforestRescue.HEIGHT-y;
+		widtha = heighta*(94/88);
 		topObstacles.add(new TopObstacle(RainforestRescue.WIDTH,0,width,height));
 		lowObstacles.add(new LowObstacle(RainforestRescue.WIDTH,y,widtha,heighta));
 	}

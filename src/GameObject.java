@@ -19,6 +19,6 @@ public class GameObject {
 	}
 	
 	void update() {
-		collisionBox.setBounds(x+15, y+15, width-30, height-30);
+		collisionBox.setBounds(x+15, ObjectManager.y+15, ObjectManager.width-30, ObjectManager.height-30);
 	}
 }
